@@ -9,8 +9,8 @@ if __name__ == "__main__":
     low_res_train, low_res_test, low_res_val, high_res_train, high_res_test, high_res_val = data_loader.loadData()
     model = CNNModel((256,256,3))
     model.summary()
-    model.compile(optimizer = tf.keras.optimizers.Adam(learning_rate = 0.001), loss = 'mse', metrics = ['acc'])
-    model.fit(low_res_train, high_res_train, epochs = 50, batch_size = 1, validation_data = (low_res_val,high_res_val))
+    # model.compile(optimizer = tf.keras.optimizers.Adam(learning_rate = 0.001), loss = 'mse', metrics = ['acc'])
+    # model.fit(low_res_train, high_res_train, epochs = 50, batch_size = 1, validation_data = (low_res_val,high_res_val))
     
     print("Shape of training images: ",high_res_train.shape)
     print("Shape of test images: ",high_res_test.shape)
