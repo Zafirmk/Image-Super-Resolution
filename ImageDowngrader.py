@@ -16,6 +16,9 @@ class ImageDowngrader:
         self.des_path = des_path
         self.factor = factor
 
+        if not os.listdir(self.des_path):
+            self.reduceQuality()
+
     def reduceQuality(self):
         for img in os.listdir(self.src_path):
 
@@ -34,6 +37,3 @@ class ImageDowngrader:
             upsized = cv2.resize(downsized, dim)
 
             cv2.imwrite(self.des_path + "/" + img, upsized)
-
-# obj = ImageDowngrader("raw_data/high_res", "raw_data/low_res", 50)
-# obj.reduceQuality()
