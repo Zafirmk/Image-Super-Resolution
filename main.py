@@ -26,9 +26,11 @@ if __name__ == "__main__":
 
     model.summary()
     
-    #Indivdual Prediction being made
+    # Indivdual Prediction being made
     # predictor.predictIndividual(model, low_res_test, high_res_test, metrics, 0)
-    predictor.predictTestSet(model, low_res_test, high_res_test, metrics, "temp")
+
+    # Predict on entire test set
+    # predictor.predictTestSet(model, low_res_test, high_res_test, metrics, "temp")
 
     print("Shape of training images: ",high_res_train.shape)
     print("Shape of test images: ",high_res_test.shape)
