@@ -11,8 +11,6 @@ class CNNModel(tf.keras.Model):
         self.dense_1 = tf.keras.layers.Dense(32, activation='relu')
         self.dense_2 = tf.keras.layers.Dense(64, activation='relu')
 
-        self.softmax = tf.keras.layers.Activation('softmax')
-
         self.conv2D_3 = tf.keras.layers.Conv2D(3, 9, padding = 'same', activation = 'relu')
 
         self.build((None,) + _shape)
@@ -23,7 +21,6 @@ class CNNModel(tf.keras.Model):
         x = self.conv2D_2(x)
         x = self.dense_1(x)
         x = self.dense_2(x)
-        x = self.softmax(x)
         x = self.conv2D_3(x)
 
         return x
