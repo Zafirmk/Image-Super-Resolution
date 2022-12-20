@@ -6,9 +6,16 @@ class Predictor():
     
     def __init__(self):
         pass
-
+    
     def predictTestSet(self, model, low_res_test, high_res_test, metrics, save_path = ""):
-        
+        '''
+        Predict on the entire test set.
+        model: Provide the trained model
+        low_res_test: Provide the low resolution test set images
+        high_res_test: Provide the high resolution test set images
+        metrics: Provide an object of the Metrics class
+        save_path: Provide the folder path to save the new images
+        '''
         if not len(save_path):
             raise Exception("Provide a path to save the results")
 
@@ -33,8 +40,15 @@ class Predictor():
             plt.savefig(save_path + '/CNN_' + str(i) + ".png", facecolor='white', transparent=False)
             plt.close()
 
-    def predictIndividual(self, model, low_res_test, high_res_test, index, metrics):
-
+    def predictIndividual(self, model, low_res_test, high_res_test, metrics, index):
+        '''
+        Predict on an individual image from the test set.
+        model: Provide the trained model
+        low_res_test: Provide the low resolution test set images
+        high_res_test: Provide the high resolution test set images
+        metrics: Provide an object of the Metrics class
+        index: Provide the index of the image in the low_res_test array
+        '''
         if index > len(low_res_test) - 1:
             raise Exception("Provide a valid index")
 
